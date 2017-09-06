@@ -28,26 +28,17 @@ void imprimeMenu(){
 }
 
 void imprimeMenuPilha(){
-    printf("\n\t Menu Pilha\n");
-	printf("1. Empilhar\n");
-	printf("2. Desempilhar\n");
-	printf("3. Buscar qual elemento esta no topo da pilha\n");
-	printf("4. Retornar o tamanho da pilha\n");
-	printf("5. Imprimir toda a pilha\n");
-	printf("0. Sair\n");
-}
-
-void imprimeMenuPilhaEncadeada(){
-	printf("\n\t--- PILHA ENCADEADA ---\n");
+	printf("\n\t--- PILHA ---\n");
 	printf("1. Empilhar (push)\n");
 	printf("2. Desempilhar (POP)\n");
 	printf("3. Mostrar o topo \n");
-	printf("4. Tamanho da Pilha\n");
+	printf("4. Imprimir Pilha\n");
+	printf("5. Tamanho da Pilha\n");
 	printf("0. Sair\n> ");
 }
 
-void imprimeMenuFilaEncadeada(){
-	printf("\n\t--- FILA ENCADEADA ---\n");
+void imprimeMenuFila(){
+	printf("\n\t--- FILA ---\n");
 	printf("1. Inserir elemento\n");
 	printf("2. Remover elemento\n");
 	printf("3. Mostrar Fila\n");
@@ -107,7 +98,7 @@ void pilhaEncadeada(){
 	criarPilha (&pEncadeada, capacidade);
 	
 	while( 1 ) { /*** LOOP INFINITO ***/
-		imprimeMenuPilhaEncadeada();
+		imprimeMenuPilha();
 		scanf("%d", &op);
 	
 		switch(op){
@@ -140,6 +131,9 @@ void pilhaEncadeada(){
 				break;
 			case 4:
 				printf("case 4");
+				break;
+			case 5:
+				printf("case 5");
 				break;
 			case 0:
 				exit(0);
@@ -210,14 +204,14 @@ void filaEncadeada(){
 	criarFila(&fEncadeada, capa);
 
 	while( 1 ){	
-		imprimeMenuFilaEncadeada();
+		imprimeMenuFila();
 		scanf("%d", &opcao);
 		
 		switch(opcao){
 			case 0: 
 				exit(0);
 			case 1:
-			// insere elemento
+			/**************** INSERIR ELEMENTO ****************/
 				if (estaCheia(&fEncadeada)){
 					printf("\nFila Cheia!!!\n\n");
 				}else {
@@ -228,7 +222,7 @@ void filaEncadeada(){
 				break;
 		
 			case 2:
-			// remove elemento
+			/**************** REMOVER ELEMENTO ****************/
 				if (estaVazia(&fEncadeada)){
 					printf("\nFila vazia!!!\n\n");
 				}else {
@@ -238,7 +232,7 @@ void filaEncadeada(){
 				break;
 		
 			case 3:
-			// mostrar fila
+			/**************** MOSTRAR FILA ****************/
 				if (estaVazia(&fEncadeada)){
 					printf("\nFila vazia!!!\n\n");
 				}else {
@@ -276,7 +270,7 @@ int main(){
 				break;
 			case 3:	
 			/**************** FILA SEQUENCIAL ****************/
-				printf("Fila Sequencial\n");
+				imprimeMenuFila();
 				break;
 			case 4:	
 			/**************** FILA ENCADEADA ****************/
